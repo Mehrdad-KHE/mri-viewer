@@ -1,0 +1,116 @@
+{
+  "BRATS_001": {
+    "shape": [
+      240,
+      240,
+      155
+    ],
+    "spacing_mm": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "regions": {
+      "WT": {
+        "dice_3d": 0.89572,
+        "reference_ml": 111.724,
+        "prediction_ml": 133.576,
+        "reference_voxels": 111724,
+        "prediction_voxels": 133576,
+        "intersection_voxels": 109860
+      },
+      "TC": {
+        "dice_3d": 0.959004,
+        "reference_ml": 58.674,
+        "prediction_ml": 61.582,
+        "reference_voxels": 58674,
+        "prediction_voxels": 61582,
+        "intersection_voxels": 57663
+      },
+      "ET": {
+        "dice_3d": 0.87959,
+        "reference_ml": 31.485,
+        "prediction_ml": 34.423,
+        "reference_voxels": 31485,
+        "prediction_voxels": 34423,
+        "intersection_voxels": 28986
+      }
+    }
+  },
+  "BRATS_002": {
+    "shape": [
+      240,
+      240,
+      155
+    ],
+    "spacing_mm": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "regions": {
+      "WT": {
+        "dice_3d": 0.920661,
+        "reference_ml": 63.061,
+        "prediction_ml": 67.556,
+        "reference_voxels": 63061,
+        "prediction_voxels": 67556,
+        "intersection_voxels": 60127
+      },
+      "TC": {
+        "dice_3d": 0.890853,
+        "reference_ml": 9.325,
+        "prediction_ml": 8.779,
+        "reference_voxels": 9325,
+        "prediction_voxels": 8779,
+        "intersection_voxels": 8064
+      },
+      "ET": {
+        "dice_3d": 0.884694,
+        "reference_ml": 8.219,
+        "prediction_ml": 7.461,
+        "reference_voxels": 8219,
+        "prediction_voxels": 7461,
+        "intersection_voxels": 6936
+      }
+    }
+  },
+  "BRATS_003": {
+    "shape": [
+      240,
+      240,
+      155
+    ],
+    "spacing_mm": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "regions": {
+      "WT": {
+        "dice_3d": 0.915311,
+        "reference_ml": 173.927,
+        "prediction_ml": 171.665,
+        "reference_voxels": 173927,
+        "prediction_voxels": 171665,
+        "intersection_voxels": 158162
+      },
+      "TC": {
+        "dice_3d": 0.930333,
+        "reference_ml": 25.664,
+        "prediction_ml": 24.991,
+        "reference_voxels": 25664,
+        "prediction_voxels": 24991,
+        "intersection_voxels": 23563
+      },
+      "ET": {
+        "dice_3d": 0.921644,
+        "reference_ml": 21.25,
+        "prediction_ml": 22.971,
+        "reference_voxels": 21250,
+        "prediction_voxels": 22971,
+        "intersection_voxels": 20378
+      }
+    }
+  }
+}
