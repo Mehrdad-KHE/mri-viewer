@@ -2,9 +2,71 @@
 <html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Glioma MRI · Outline review</title><link rel="stylesheet" href="viewer.css"><script src="viewer.js" defer></script></head>
 <body><header><b>Glioma MRI</b><label><span class="sr">Interface language</span><select id="language"><option value="en">English</option><option value="fa">فارسی</option></select></label></header>
 <main><div class="intro"><p data-t="eyebrow"></p><h1 data-t="heading"></h1><p data-t="intro"></p></div>
-<section class="viewer"><div class="controls"><label><span data-t="study"></span><select id="study"><option>BRATS_001</option><option>BRATS_002</option><option>BRATS_003</option></select></label><label><span data-t="plane"></span><select id="plane"><option value="axial" data-t="axial"></option><option value="coronal" data-t="coronal"></option><option value="sagittal" data-t="sagittal"></option></select></label><label><span data-t="region"></span><select id="region"><option value="WT" data-t="WT"></option><option value="TC" data-t="TC"></option><option value="ET" data-t="ET"></option></select></label></div>
+
+<section class="card-section" id="resultsSection" aria-labelledby="resultsHeading">
+<h2 id="resultsHeading" data-t="resultsHeading"></h2>
+<p data-t="resultsSummary"></p>
+<p id="resultsFail" class="fail-note" data-t="resultsFail" hidden></p>
+<div id="matrixWrap" class="matrix-wrap"></div>
+<div id="dotWrap" class="dot-wrap"></div>
+<div id="rangeWrap" class="range-wrap"></div>
+<div class="how-box"><h3 data-t="howTitle"></h3><p data-t="howText"></p></div>
+<p class="provenance" data-t="provenance"></p>
+</section>
+
+<section class="viewer" id="viewerSection"><div class="controls"><label><span data-t="study"></span><select id="study"><option>BRATS_001</option><option>BRATS_002</option><option>BRATS_003</option></select></label><label><span data-t="plane"></span><select id="plane"><option value="axial" data-t="axial"></option><option value="coronal" data-t="coronal"></option><option value="sagittal" data-t="sagittal"></option></select></label><label><span data-t="region"></span><select id="region"><option value="WT" data-t="WT"></option><option value="TC" data-t="TC"></option><option value="ET" data-t="ET"></option></select></label></div>
+<p id="regionDef" class="region-def"></p>
 <div class="three" id="panels"></div><p id="feedback" role="status"></p>
-<div class="toolbar"><b data-t="centre"></b><label><input id="ref" type="checkbox" checked><i class="stroke"></i><span data-t="reference"></span></label><label><input id="pred" type="checkbox" checked><i class="stroke dash"></i><span data-t="model"></span></label></div>
+<div class="toolbar"><b data-t="centre"></b><label><input id="ref" type="checkbox" checked><i class="stroke"></i><span data-t="reference"></span></label><label><input id="pred" type="checkbox" checked><i class="stroke dash"></i><span data-t="model"></span></label><label class="opacity-control"><span data-t="opacityLabel"></span><input id="opacity" type="range" min="0" max="100" value="100"><output id="opacityVal" for="opacity">100%</output></label></div>
 <div class="slice"><label for="slice" data-t="slice"></label><input id="slice" type="range" min="0" max="0" value="0"><output id="index" for="slice"></output><button id="focus" data-t="focus"></button></div></section>
-<section class="results"><div><h2 data-t="volume"></h2><p data-t="full"></p></div><dl><div><dt data-t="reference"></dt><dd id="rv">—</dd></div><div><dt data-t="model"></dt><dd id="mv">—</dd></div><div><dt data-t="difference"></dt><dd id="dv">—</dd></div></dl></section>
+
+<section class="results"><div><h2 data-t="volume"></h2><p data-t="full"></p></div><dl><div><dt data-t="reference"></dt><dd id="rv">—</dd></div><div><dt data-t="model"></dt><dd id="mv">—</dd></div><div><dt data-t="difference"></dt><dd id="dv">—</dd></div><div><dt data-t="diceLabel"></dt><dd id="diceVal">—</dd></div></dl></section>
+
+<section class="card-section" aria-labelledby="disagreeHeading">
+<h2 id="disagreeHeading" data-t="disagreeHeading"></h2>
+<div class="cards">
+<article class="case-card"><h3>BRATS_001 · WT · 0.896</h3><p data-t="card1Text"></p><button type="button" data-open-case="BRATS_001" data-open-region="WT" data-t="openViewer"></button></article>
+<article class="case-card"><h3>BRATS_001 · ET · 0.880</h3><p data-t="card2Text"></p><button type="button" data-open-case="BRATS_001" data-open-region="ET" data-t="openViewer"></button></article>
+<article class="case-card"><h3>BRATS_002 · TC 0.891 / ET 0.885</h3><p data-t="card3Text"></p><span class="card-buttons"><button type="button" data-open-case="BRATS_002" data-open-region="TC">BRATS_002 · TC</button><button type="button" data-open-case="BRATS_002" data-open-region="ET">BRATS_002 · ET</button></span></article>
+<article class="case-card"><h3>BRATS_003 · WT 0.915 / ET 0.922</h3><p class="card-tag" data-t="card4Tag"></p><p data-t="card4Text"></p><span class="card-buttons"><button type="button" data-open-case="BRATS_003" data-open-region="WT">BRATS_003 · WT</button><button type="button" data-open-case="BRATS_003" data-open-region="ET">BRATS_003 · ET</button></span></article>
+</div>
+</section>
+
+<section class="card-section" aria-labelledby="modelCardHeading">
+<h2 id="modelCardHeading" data-t="modelCardHeading"></h2>
+<dl class="model-card">
+<div><dt data-t="mcModelLabel"></dt><dd data-t="mcModel"></dd></div>
+<div><dt data-t="mcUseLabel"></dt><dd data-t="mcUse"></dd></div>
+<div><dt data-t="mcScopeLabel"></dt><dd data-t="mcScope"></dd></div>
+<div><dt data-t="mcDataLabel"></dt><dd data-t="mcData"></dd></div>
+<div><dt data-t="mcRefLabel"></dt><dd data-t="mcRef"></dd></div>
+<div><dt data-t="mcMetricsLabel"></dt><dd data-t="mcMetrics"></dd></div>
+<div><dt data-t="mcLimitsLabel"></dt><dd data-t="mcLimits"></dd></div>
+<div><dt data-t="mcAvailLabel"></dt><dd><span data-t="mcAvail"></span> <a href="https://github.com/Mehrdad-KHE/mri-viewer/tree/main/data/masks">data/masks</a> · <a href="https://github.com/Mehrdad-KHE/mri-viewer/blob/main/data/masks/recompute3d.py">recompute3d.py</a> · <a href="https://github.com/Mehrdad-KHE/mri-viewer">GitHub</a></dd></div>
+</dl>
+</section>
+
+<section class="card-section" aria-labelledby="verifyHeading">
+<h2 id="verifyHeading" data-t="verifyHeading"></h2>
+<ol class="verify-steps">
+<li><span data-t="verifyStep1"></span> <a href="https://github.com/Mehrdad-KHE/mri-viewer/tree/main/data/masks">data/masks</a></li>
+<li><span data-t="verifyStep2"></span> <code>python3 recompute3d.py /path/to/this/folder</code></li>
+<li data-t="verifyStep3"></li>
+</ol>
+<div class="verify-wrap"><table class="verify-table">
+<thead><tr><th data-t="study"></th><th data-t="region"></th><th>Dice</th><th><span data-t="refShort"></span> (<span data-t="unit"></span>)</th><th><span data-t="modelShort"></span> (<span data-t="unit"></span>)</th></tr></thead>
+<tbody>
+<tr><td>BRATS_001</td><td>WT</td><td>0.896</td><td>111.7</td><td>133.6</td></tr>
+<tr><td>BRATS_001</td><td>TC</td><td>0.959</td><td>58.7</td><td>61.6</td></tr>
+<tr><td>BRATS_001</td><td>ET</td><td>0.880</td><td>31.5</td><td>34.4</td></tr>
+<tr><td>BRATS_002</td><td>WT</td><td>0.921</td><td>63.1</td><td>67.6</td></tr>
+<tr><td>BRATS_002</td><td>TC</td><td>0.891</td><td>9.3</td><td>8.8</td></tr>
+<tr><td>BRATS_002</td><td>ET</td><td>0.885</td><td>8.2</td><td>7.5</td></tr>
+<tr><td>BRATS_003</td><td>WT</td><td>0.915</td><td>173.9</td><td>171.7</td></tr>
+<tr><td>BRATS_003</td><td>TC</td><td>0.930</td><td>25.7</td><td>25.0</td></tr>
+<tr><td>BRATS_003</td><td>ET</td><td>0.922</td><td>21.3</td><td>23.0</td></tr>
+</tbody></table></div>
+<p data-t="verifyClosing"></p>
+</section>
+
 <footer><p data-t="boundary"></p><details><summary data-t="source"></summary><p data-t="attribution"></p><a href="https://registry.opendata.aws/msd/">Medical Segmentation Decathlon</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> · <a href="https://huggingface.co/MONAI/brats_mri_segmentation">MONAI SegResNet</a></details></footer></main></body></html>
